@@ -1,4 +1,4 @@
-# face_recognition_app
+# Image Upload App
 This is an app for a project that uses facial recognition software for images.
 
 Initialisation of the app at current state:
