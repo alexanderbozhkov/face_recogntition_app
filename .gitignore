@@ -106,5 +106,5 @@ venv.bak/
 api/database/images*
 
 # exception to the rule
-#!api/database/images/.gitkeep 
+!api/database/images/.gitkeep 
 .mypy_cache/
