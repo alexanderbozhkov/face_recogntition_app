@@ -1,7 +1,7 @@
-# face_recogntition_app
+# face_recognition_app
 This is an app for a project that uses facial recognition software for images.
 
-Initialisation of the api at current state:
+Initialisation of the app at current state:
 
 1. virtualenv -p python3 venv
 2. pip3 install -r api/requirements.txt
