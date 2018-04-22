@@ -3,7 +3,7 @@ from app_configuration import init_app
 db = init_app()[2]
 
 
-class UploadedImage(db.Model):
+class Images(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     img_name = db.Column(db.String(80), nullable=False, unique=True)
 

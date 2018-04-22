@@ -101,4 +101,10 @@ venv.bak/
 /site
 
 # mypy
+
+# exclude everything
+api/database/images*
+
+# exception to the rule
+!api/database/images/.gitkeep 
 .mypy_cache/
