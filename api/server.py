@@ -10,7 +10,7 @@ app, image, db = init_app()
 @app.route('/get_all_images', methods=['GET'])
 def get_all_images():
     # TODO return json with all the uploaded images with their names as unique identifier (for now)
-    all_images = db.session.query_property(Images).all()
+    all_images = db.session.query(Images).all()
     result = []
     for img in all_images:
         result.append(img.name)
