@@ -1,6 +1,6 @@
 from app_configuration import init_app
 
-db = init_app()[1]
+db = init_app()[2]
 
 
 class UploadedImage(db.Model):

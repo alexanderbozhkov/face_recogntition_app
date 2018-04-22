@@ -3,7 +3,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_uploads import UploadSet, configure_uploads, IMAGES
 
-UPLOAD_FOLDER = getcwd() + '/database/images/'
+UPLOAD_FOLDER = getcwd() + '/database/'
 
 
 def config_app():
