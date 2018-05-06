@@ -5,8 +5,8 @@ from flask_restplus import Resource, Namespace
 from flask_uploads import UploadSet, IMAGES
 from sqlalchemy.exc import IntegrityError, InvalidRequestError
 from werkzeug.datastructures import FileStorage
-from db import session
-from models import Images
+from database.db import session
+from database.models import Images
 
 
 api = Namespace('Images', description='Uploaded images info')
@@ -41,7 +41,7 @@ class UploadImage(Resource):
             allowed_extensions = {".jpeg"}
             if not is_extension_allowed(input_filename, allowed_extensions):
                 message = {
-                    "message": "Only these extensionsa are allowed: %(exts)s, but filename is %(input_filename)s" % dict(
+                    "message": "Only these extensions are allowed: %(exts)s, but filename is %(input_filename)s" % dict(
                         exts=str(allowed_extensions), input_filename=input_filename),
                 }
                 logging.error(message)

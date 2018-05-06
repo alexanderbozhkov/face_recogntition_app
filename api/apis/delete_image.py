@@ -1,7 +1,8 @@
-from flask import jsonify
+import os
+
 from flask_restplus import Resource, Namespace
-from db import session
-from models import Images
+from database.db import session
+from database.models import Images
 
 api = Namespace('Images', description='Uploaded images info')
 
@@ -19,9 +20,8 @@ class DeleteImage(Resource):
         if not img:
             return {'message': 'Image does not exist'}, 400
 
-        session.delete(img)
-        session.commit()
-        session.close()
+        delete_image(img)
+
         return {'message': 'Image deleted successfully.'}, 200
 
 
@@ -31,3 +31,14 @@ def id_validator(n):
         return True
     except ValueError:
         return False
+
+
+def delete_image(img):
+    try:
+        file_path = os.getcwd() + '/database/images/' + img.img_name + '.jpeg'
+        session.delete(img)
+        session.commit()
+        session.close()
+        os.remove(file_path)
+    except:
+        return {'message': 'Something went wrong'}, 500

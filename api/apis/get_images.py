@@ -1,12 +1,9 @@
 import os
 
 from flask import jsonify
-from flask_restplus import Api, fields, Resource, Namespace
-from flask_uploads import UploadSet, configure_uploads, IMAGES
-from sqlalchemy.exc import IntegrityError, InvalidRequestError
-from werkzeug.datastructures import FileStorage
-from db import session
-from models import Images
+from flask_restplus import Resource, Namespace
+from database.db import session
+from database.models import Images
 
 api = Namespace('Images', description='Uploaded images info')
 
