@@ -10,5 +10,5 @@ Initialisation of the app at it current state:
 (app must be run from this dir)
 4. python3 database/models.py
 (to create new database)
-5. python3 app.py <port>
+5. python3 api.py <port>
 (if no value is provided app will run on port 5000 by default)
