@@ -4,12 +4,14 @@ from flask import Flask
 from flask_uploads import configure_uploads
 from apis import api
 from apis.upload_images import image
+from flask_cors import CORS
 
 app = Flask(__name__)
 api.init_app(app)
 UPLOAD_FOLDER = os.getcwd() + '/database/'
 app.config['UPLOADS_DEFAULT_DEST'] = UPLOAD_FOLDER
 configure_uploads(app, image)
+CORS(app, resources=r'*')
 
 
 def int_port_conv(n):
