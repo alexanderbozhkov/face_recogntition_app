@@ -27,7 +27,7 @@ class GetAllImages(Resource):
         for img in all_images:
             file_path = os.getcwd() + '/database/images/' + img.img_name + '.jpeg'
             result.append({'image_id': img.id, 'image_name': img.img_name, 'image_path': file_path})
-        return jsonify(images=result)
+        return jsonify(result)
 
 
 @api.route('/<id>')

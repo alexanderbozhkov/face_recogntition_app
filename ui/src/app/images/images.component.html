@@ -1,0 +1,16 @@
+<h3> Images List </h3>
+<!-- <button (click)="getAllImages()"> TEST BUTTON</button> -->
+
+<!-- <div *ngFor="let image of images.images |async" class="image-container"> -->
+<div class="col-xl-4">
+    <div *ngFor="let image of images">
+        <button (click)="selectImage(image)"  class="btn btn-info" > {{image.image_name}} </button>
+        <button (click)="deleteImage(image)" style="margin-left: 20px;" class="btn btn-danger" > Delete </button>
+    </div>
+</div>
+<div *ngIf="this.selectedImage" class="col-xl-4">
+    <img src="assets/img/{{this.selectedImage.image_name}}.jpeg"/> 
+</div>
+
+
+<button (click)="goBack()" > Back </button>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -7,29 +8,17 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
 
-  selectedFile: File = null;
-  fileName: String = null;
+  form: FormGroup;
 
-  constructor(private http: HttpClient) {}
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) {}
 
-  onFileSelected(event){
-    this.selectedFile = <File>event.target.files[0];
+
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      validName: [null, [Validators.required]],
+      validUpload: [null, [Validators]]
+    });
   }
-
-  onFileNameInput(event){
-    console.log('@@@@: ', event.target);
-  }
-
-  onUpload(){
-    const fd = new FormData();
-    fd.append('image_file', this.selectedFile, this.selectedFile.name);
-    fd.append('name', this.selectedFile.name);
-    console.log('@@: ', this.selectedFile)
-    this.http.post('http://localhost:5000/Images/upload', fd).subscribe(res => {
-      console.log(res);
-    }) // fd - body of the POST request
-  }
-  
 }
