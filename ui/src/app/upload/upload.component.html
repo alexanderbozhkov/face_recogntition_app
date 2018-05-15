@@ -1,0 +1,33 @@
+<form class="form-horizontal" [formGroup]="form">
+    <div class="form-group">
+      <div class="col-sm-12">
+        <h2 for="validName" class="control-label required">Image Upload</h2>
+        <input 
+          id="validName" 
+          type="text" 
+          class="form-control"
+          (change)="onFileNameInput($event)"
+          [(ngModel)]="fileName"
+          name="fileName"
+          formControlName="validName"
+          />
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="col-sm-12">
+          <label for="validUpload" class="control-label required">Choose Image</label>
+          <input
+            id="validUpload"
+            type="file"
+            (change)="onFileSelected($event)"
+            [(ngModel)]="imageFile"
+            name="imageFile"
+            formControlName="validUpload"
+            />
+          </div>
+    </div>
+    <button type="submit" class="btn btn-success" (click)="onUpload()" 
+    [disabled]="(allowClick2||allowClick) ?  false : true">Upload</button>
+  </form>
+  <button (click)="goBack()" > Back </button>
