@@ -14,5 +14,7 @@ Initialisation of the app at it current state:
 (if no value is provided app will run on port 5000 by default)
 6. (in separate terminal) cd /app/ui/
 7. npm install --save-dev
-8. cd ./src/assets
-9. ln -s ../../../api/database/images/ img
+8. sudo npm install -g @angular/cli
+9. cd ./src/assets
+10. ln -s ../../../api/database/images/ img
+11. ng serve (--disable-host-check)
